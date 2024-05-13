@@ -1,10 +1,23 @@
 import React from "react"
+import ToyIndex from "./views/ToyIndex"
 
 function App() {
   return (
-    <div className="App">
+    <section className="app-container">
 
-    </div>
+      <header>
+
+      </header>
+
+      <main>
+        <ToyIndex />
+      </main>
+
+      <footer>
+
+      </footer>
+
+    </section>
   )
 }
 
