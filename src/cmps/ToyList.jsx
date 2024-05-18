@@ -1,8 +1,12 @@
-import React from "react"
+import React, { useEffect } from "react"
 import ToyPreview from "./ToyPreview"
 
-export default function ToyList(toys) {
-    return <section className="toy-list">
-        {toys.map(toy => <ToyPreview toy={toy} />)}
-    </section>
+export default function ToyList({ toys }) {
+    return (
+        <section className="toy-list">
+            {toys.map((toy) => (
+                <ToyPreview key={toy._id} toy={toy} />
+            ))}
+        </section>
+    )
 }

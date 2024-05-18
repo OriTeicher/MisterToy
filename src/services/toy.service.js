@@ -11,10 +11,10 @@ const TOY_NAME_LIMIT = 5
 
 function query(amount = TOY_LIMIT) {
     let toys = JSON.parse(localStorage.getItem(TOY_DB_KEY))
-    if (toys || !toys.length) {
+    if (!toys || !toys.length) {
         toys = _createToys(amount)
+        localStorage.setItem(TOY_DB_KEY, JSON.stringify(toys))
     }
-    localStorage.setItem(TOY_DB_KEY, JSON.stringify(toys))
     return toys
 }
 

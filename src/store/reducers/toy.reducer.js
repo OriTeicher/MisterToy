@@ -1,12 +1,16 @@
 import { toyService } from "../../services/toy.service"
 
 const initialState = {
-    toys: [toyService.query(3)],
+    toys: toyService.query(),
     selectedToyId: '',
 }
 
-export default function toyReducer(state = initialState, action) {
+
+export default function toyReducer(state = initialState, action = {}) {
     switch (action.type) {
+        case 'LOAD_TOYS': return {
+            ...state,
+        }
         case 'ADD_TOY':
             return {
                 ...state,
@@ -19,10 +23,12 @@ export default function toyReducer(state = initialState, action) {
             }
         case 'UPDATE_TOY':
             const idx = state.toys.findIndex(toy => toy.id === action.payload.id)
-            if (idx === -1) return state // No update if toy not found
+            if (idx === -1) return state
+            const updatedToys = [...state.toys]
+            updatedToys[idx] = action.payload
             return {
                 ...state,
-                toys: [...state.slice(0, idx), action.payload, ...state.slice(idx + 1)],
+                toys: updatedToys
             }
         default:
             return state
