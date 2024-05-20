@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import ToyList from '../cmps/ToyList'
 import Loader from '../cmps/utils/Loader'
@@ -7,6 +7,10 @@ import { MAIN_HEADER } from '../services/toy.service'
 
 export default function ToyIndex() {
    const { toys } = useSelector((state) => state.toys)
+
+   useEffect(() => {
+      toyActions.query()
+   })
 
    function handleRemoveToy(toyId) {
       toyActions.removeToy(toyId)

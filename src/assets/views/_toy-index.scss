@@ -8,6 +8,10 @@ main {
 .headline {
    text-align: center;
    margin-top: 2%;
+   text-shadow: 3px 3px rgba(0, 0, 0, 0.332);
+   cursor: default;
+   text-decoration: underline;
+   text-underline-position: under;
 }
 
 .toy-list {
@@ -35,10 +39,6 @@ main {
       opacity: 0;
       transition: opacity 0.3s ease-in, 0.3s ease-in transform;
       transform: translateY(100%);
-
-      button {
-         text-shadow: 1px 1px black;
-      }
    }
    .toy-btns.show {
       opacity: 1;
@@ -48,7 +48,7 @@ main {
    h2 {
       font-size: 1em;
       span {
-         color: $green-001;
+         color: $success-clr;
       }
    }
    .toy-content {
@@ -59,7 +59,8 @@ main {
       font-size: 1em;
       margin: auto;
       text-align: center;
-      word-break: break-all;
+      word-break: break-word;
+      height: 40px;
    }
    div {
       align-items: center;
