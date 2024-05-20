@@ -3,13 +3,9 @@ import ToyIndex from './views/ToyIndex'
 import AppHeader from './cmps/AppHeader'
 import ToyDetails from './views/ToyDetails'
 import { Route, Routes, useNavigate } from 'react-router'
+import LoginSignup from './views/LoginSignup'
 
 function App() {
-   const navigateTo = useNavigate()
-   useEffect(() => {
-      navigateTo('/toy')
-   })
-
    return (
       <section className="app-container">
          <header className="flex justify-end">
@@ -20,6 +16,7 @@ function App() {
                <Route path="/*" element={<ToyIndex />} />
                <Route path="/toy" element={<ToyIndex />} />
                <Route path="/toy/:toyId" element={<ToyDetails />} />
+               <Route path="/login" element={<LoginSignup />}></Route>
             </Routes>
          </main>
          <footer>All rights reserved &copy; to Ori Teicher</footer>

@@ -11,6 +11,7 @@ export const TOY_DB_KEY = 'toyDB'
 export const TOY_LIMIT = 10
 export const TOY_ID_LIMIT = 5
 export const TOY_MAX_LABELS_COUNT = 5
+export const MAIN_HEADER = 'Welcome to Mr.T🪀y! '
 
 function query(amount = TOY_LIMIT) {
     let toys = JSON.parse(localStorage.getItem(TOY_DB_KEY))

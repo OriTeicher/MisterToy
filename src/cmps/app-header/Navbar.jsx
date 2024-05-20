@@ -3,22 +3,20 @@ import { Link } from 'react-router-dom'
 
 export default function Navbar() {
    const navItems = [
-      { path: '/home', txt: 'Home' },
+      { path: '/toys', txt: 'Toys' },
       { path: '/about', txt: 'About' },
       { path: '/charts', txt: 'Statistics' },
    ]
 
    return (
-      <nav className="navbar">
-         <ul className="navbar-nav">
-            {navItems.map((item, index) => (
-               <li key={index} className="nav-item">
-                  <Link to={item.path} className="nav-link">
-                     {item.txt}
-                  </Link>
+      <ul className="navbar">
+         {navItems.map((item, idx) => (
+            <Link to={item.path} className="nav-link">
+               <li key={idx} className="nav-item">
+                  {item.txt}
                </li>
-            ))}
-         </ul>
-      </nav>
+            </Link>
+         ))}
+      </ul>
    )
 }
