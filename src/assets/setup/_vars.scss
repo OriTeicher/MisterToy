@@ -1,6 +1,6 @@
 // colors
-
-$bgc-000: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+$bgc-000: linear-gradient(90deg, #0093e9 0%, #80d0c7 100%);
+$bgc-0000: linear-gradient(lightskyblue 0%, #0095f188 100%);
 $bgc-001: #fff;
 $bgc-002: #ffffff78;
 $bgc-003: #ffffff21;
@@ -11,10 +11,12 @@ $font-clr-002: #101010;
 $font-clr-003: #000;
 
 // shadows
-
 $shadow-000: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 $shadow-001: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 $shadow-002: rgba(9, 30, 66, 0.25) 0px 1px 1px,
-  rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+   rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+$shadow-003: rgba(9, 30, 66, 0.25) 0px 5px 5px,
+   rgba(9, 30, 66, 0.13) 0px 0px 5px 5px;
 
 // outlines
+$frame-radius-000: 15px;

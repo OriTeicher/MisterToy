@@ -1,4 +1,11 @@
-@import "./setup/vars";
-@import "./setup/base";
+@import './setup/vars';
+@import './setup/mixins';
+@import './setup/helpers';
+@import './setup/base';
+@import './setup/layout';
 
-@import "./views/ToyIndex";
+@import './cmps/app-footer';
+@import './cmps/app-header';
+@import './cmps/logo';
+@import './cmps/main-btn';
+@import './views/toy-index';

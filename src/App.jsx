@@ -1,23 +1,27 @@
 import React from "react"
 import ToyIndex from "./views/ToyIndex"
-
+import AppHeader from "./cmps/AppHeader"
+import { Route, Routes } from "react-router"
 function App() {
   return (
-    <section className="app-container">
+    <Routes>
+      <section className="app-container">
 
-      <header>
+        <header className="flex justify-end">
+          <AppHeader />
+        </header>
+        <Route path="/toy" element={ToyIndex} />
 
-      </header>
+        <main>
+          <ToyIndex />
+        </main>
 
-      <main>
-        <ToyIndex />
-      </main>
+        <footer>
+          All rights reserved &copy; to Ori Teicher
+        </footer>
 
-      <footer>
-
-      </footer>
-
-    </section>
+      </section>
+    </Routes>
   )
 }
 

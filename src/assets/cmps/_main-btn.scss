@@ -1,0 +1,24 @@
+.main-btn {
+   display: flex;
+   align-items: center;
+   width: 100%;
+   text-align: center;
+   align-items: center;
+   font-size: 1em;
+   justify-content: center;
+   color: white;
+   border: none;
+   font-family: 'Assistant';
+   font-weight: 900;
+   background: $bgc-0000;
+   &.delete-btn:hover {
+      color: lightcoral;
+   }
+   &:hover {
+      cursor: pointer;
+      background-color: $bgc-002;
+   }
+   &.edit-btn:hover {
+      color: lightseagreen;
+   }
+}
