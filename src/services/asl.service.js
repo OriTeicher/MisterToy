@@ -23,10 +23,8 @@ async function loadById(dbKey, entityId) {
       setTimeout(() => {
          try {
             const entities = JSON.parse(localStorage.getItem(dbKey))
-            console.log('entities', entities)
             let entityById = entities.find((item) => item._id === entityId)
-            console.log('entityById', entityById)
-            if (!entityById) reject('could not find entity by id')
+            if (!entityById) throw new Error('no find entity with given id')
             resolve(entityById)
          } catch (error) {
             reject(error)

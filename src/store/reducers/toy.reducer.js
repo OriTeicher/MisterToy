@@ -5,7 +5,7 @@ const initialState = {
    selectedToyId: '',
 }
 
-export default function toyReducer(state = initialState, action = {}) {
+export default function toyReducer(action = {}, state = initialState) {
    switch (action.type) {
       case 'SET_TOYS':
          return {

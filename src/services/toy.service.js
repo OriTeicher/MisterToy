@@ -24,15 +24,15 @@ export const TOY_LABELS = [
    'Safe',
 ]
 export const TOY_DB_KEY = 'toyDB'
-export const TOY_LIMIT = 10
+export const TOY_AMOUNT_LIMIT = 20
 export const TOY_ID_LIMIT = 5
 export const TOY_MAX_LABELS_COUNT = 5
 export const MAIN_HEADER = "Welcome to Mr.Toy's toys! "
 
-async function query(amount = TOY_LIMIT) {
+async function query(filterBy = {}) {
    let toys = await asyncLocalStorageService.load(TOY_DB_KEY)
    if (!toys || !toys.length) {
-      toys = _createToys(amount)
+      toys = _createToys(TOY_AMOUNT_LIMIT)
       localStorage.setItem(TOY_DB_KEY, JSON.stringify(toys))
    }
    return toys
@@ -67,7 +67,15 @@ function generateToyImg() {
 }
 
 function _getRandomToyName() {
-   const nouns = ['Robot', 'Transformer']
+   const nouns = [
+      'Robot',
+      'Transformer',
+      'Robocop',
+      'E-bot',
+      'R2',
+      'D9',
+      'R2D2',
+   ]
    const types = [
       'Deluxe',
       'Pro',

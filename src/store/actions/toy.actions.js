@@ -1,19 +1,24 @@
-import { useDispatch } from 'react-redux'
-import { asyncLocalStorageService } from '../../services/asl.service'
-import { TOY_DB_KEY } from '../../services/toy.service'
-
+import { toyService } from '../../services/toy.service'
+import { store } from '../store'
 export const toyActions = {
-   query,
+   loadToys,
+   setToys,
 }
 
-const dispatch = useDispatch()
+function setToys(toys) {
+   return {
+      type: 'SET_TOYS',
+      toys,
+   }
+}
 
-async function query() {
+async function loadToys(filterBy) {
    try {
-      const toys = await asyncLocalStorageService.load(TOY_DB_KEY)
-      if (!toys || !toys.length) throw new Error('no toys to load')
-      dispatch({ type: 'SET_TOYS', payload: toys })
+      const toys = await toyService.query(filterBy)
+      store.dispatch({ type: 'SET_TOYS', toys })
+      return toys
    } catch (err) {
-      console.log(err)
+      console.log('from toy action -> load toys -> ', err)
+      throw err
    }
 }
