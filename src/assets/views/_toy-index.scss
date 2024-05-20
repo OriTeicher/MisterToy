@@ -39,12 +39,11 @@ main {
       opacity: 1;
       transform: translateY(0);
    }
-   img {
-   }
+
    h2 {
       font-size: 1em;
       span {
-         color: rgb(0, 255, 242);
+         color: $green-001;
       }
    }
    .toy-content {
@@ -64,5 +63,13 @@ main {
       box-shadow: $shadow-003;
       cursor: pointer;
       scale: 1.05;
+   }
+}
+
+// LOADER
+.loader-container {
+   .container {
+      width: 500px;
+      background-color: #000;
    }
 }
