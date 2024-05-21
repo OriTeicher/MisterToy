@@ -11,8 +11,9 @@ export default function ToyPreview({ toy, onRemoveToy }) {
    function showToyDetails() {
       navigate(`/toy/${toy._id}`)
    }
-   function editToyDetails() {
-      navigate(`toy/edit/${toy._id}`)
+   function editToyDetails(ev) {
+      ev.stopPropagation()
+      navigate(`/toy/edit/${toy._id}`)
    }
 
    return (
