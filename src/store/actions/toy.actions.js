@@ -1,5 +1,6 @@
 import { toyService } from '../../services/toy.service'
 import { store } from '../store'
+
 export const toyActions = {
    loadToys,
    setToys,
@@ -18,7 +19,6 @@ async function loadToys(filterBy) {
       store.dispatch({ type: 'SET_TOYS', toys })
       return toys
    } catch (err) {
-      console.log('from toy action -> load toys -> ', err)
       throw err
    }
 }

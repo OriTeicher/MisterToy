@@ -1,0 +1,66 @@
+.toy-details {
+   @include flex-center;
+   display: grid;
+   grid-template-columns: 0.1fr 0.8fr 0.1fr;
+   background: $bgc-0000;
+   height: 100%;
+   box-shadow: $shadow-000;
+   margin: auto;
+   text-align: center;
+   justify-items: center;
+
+   .toy-content {
+      display: flex;
+      height: 100%;
+      width: 100%;
+      align-items: center;
+      justify-content: space-evenly;
+      flex-direction: column;
+      img {
+         width: 300px;
+         height: 300px;
+         cursor: pointer;
+         box-shadow: $shadow-001;
+         border-radius: 50%;
+         transition: transform 1s ease-in-out;
+         &:hover {
+            transform: rotate(360deg);
+         }
+      }
+      .labels-container {
+         width: 100%;
+         height: 10%;
+
+         @include flex-center;
+         gap: 20px;
+         span {
+            background-color: $bgc-003;
+            border-radius: 10px;
+            padding: 5px 20px;
+            cursor: pointer;
+            transition: scale 0.1s ease-in-out;
+            &:hover {
+               background-color: $bgc-002;
+               scale: 1.1;
+            }
+         }
+      }
+   }
+   svg {
+      cursor: pointer;
+      transition: scale 0.1s ease-in-out;
+      font-size: 1.5em;
+      &:hover {
+         scale: 1.2;
+      }
+   }
+}
+
+@media (max-width: $tablet-mq) {
+   .toy-details {
+      width: 100%;
+      svg {
+         font-size: 1em;
+      }
+   }
+}

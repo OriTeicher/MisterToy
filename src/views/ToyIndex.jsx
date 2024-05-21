@@ -8,7 +8,6 @@ import { toyActions } from '../store/actions/toy.actions'
 
 export default function ToyIndex() {
    const { toys } = useSelector((state) => state.toys)
-   const disptach = useDispatch()
 
    useEffect(() => {
       toyActions.loadToys()

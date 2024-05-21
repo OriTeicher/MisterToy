@@ -5,15 +5,14 @@ import { useNavigate } from 'react-router'
 
 export default function ToyPreview({ toy, onRemoveToy }) {
    const [isHovered, setIsHovered] = useState(false)
-   const PRICE_DIFF = 0.01
 
    const navigate = useNavigate()
 
    function showToyDetails() {
-      navigate(`${toy._id}`)
+      navigate(`/toy/${toy._id}`)
    }
    function editToyDetails() {
-      navigate(`edit/${toy._id}`)
+      navigate(`toy/edit/${toy._id}`)
    }
 
    return (
@@ -42,8 +41,8 @@ export default function ToyPreview({ toy, onRemoveToy }) {
          <div className="toy-content">
             <h1>{toy.toyName}</h1>
             <h2>
-               {toy.price - PRICE_DIFF}
-               <span>$</span>
+               {toy.price}
+               <span className="price-sign">$</span>
             </h2>
          </div>
          <img src={toy.imgUrl} alt="toy-image" />

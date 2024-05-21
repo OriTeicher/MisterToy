@@ -16,3 +16,11 @@
       background-color: $bgc-003;
    }
 }
+
+@media (max-width: $mobile-mq) {
+   .logo-container {
+      padding: 0;
+      padding-inline-start: 15px;
+      font-size: 1.5rem;
+   }
+}

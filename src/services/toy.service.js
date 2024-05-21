@@ -28,6 +28,7 @@ export const TOY_AMOUNT_LIMIT = 20
 export const TOY_ID_LIMIT = 5
 export const TOY_MAX_LABELS_COUNT = 5
 export const MAIN_HEADER = "Welcome to Mr.Toy's toys! "
+const PRICE_DIFF = 0.01
 
 async function query(filterBy = {}) {
    let toys = await asyncLocalStorageService.load(TOY_DB_KEY)
@@ -40,10 +41,10 @@ async function query(filterBy = {}) {
 
 function _createToy() {
    return {
-      _id: utilService.getRandomStr(TOY_ID_LIMIT, 'T'),
+      _id: utilService.makeId(TOY_ID_LIMIT, 'T'),
       createdAt: Date.now(),
       toyName: _getRandomToyName(),
-      price: utilService.getRandomInt(10, 100),
+      price: utilService.getRandomInt(10, 100) - PRICE_DIFF,
       labels: _getRandomToyLabels(
          utilService.getRandomInt(0, TOY_MAX_LABELS_COUNT)
       ),
@@ -98,7 +99,7 @@ function _getRandomToyName() {
 function _getRandomToyLabels(amount = 3) {
    let res = []
    for (let i = 0; i < amount; i++) {
-      res.push(TOY_LABELS[utilService.getRandomInt(0, TOY_LABELS.length)])
+      res.push(TOY_LABELS[utilService.getRandomInt(0, TOY_LABELS.length - 1)])
    }
    return res
 }

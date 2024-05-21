@@ -3,35 +3,40 @@ import { useParams } from 'react-router'
 import Loader from '../cmps/utils/Loader'
 import ToyHeadline from '../cmps/utils/Headline'
 import { toyService } from '../services/toy.service'
+import { FaRegArrowAltCircleRight as ArrowRight } from 'react-icons/fa'
+import { FaRegArrowAltCircleLeft as ArrowLeft } from 'react-icons/fa'
+import { utilService } from '../services/util.service'
+import ToyContent from '../cmps/toy-details/ToyContent'
 export default function ToyDetails() {
    const [toyToDisplay, setToyToDisplay] = useState(null)
    const { toyId } = useParams()
 
    useEffect(() => {
-      const fetchData = async () => {
-         try {
-            const selectedToy = await toyService.getToyById(toyId)
-            console.log('selectedToy', selectedToy)
-            setToyToDisplay((prevToy) => (prevToy = selectedToy))
-         } catch (error) {
-            console.error('Error fetching toy:', error)
-         }
-      }
-      fetchData()
+      loadToy()
    }, [toyId])
+
+   async function loadToy() {
+      try {
+         const selectedToy = await toyService.getToyById(toyId)
+         setToyToDisplay((prevToy) => (prevToy = selectedToy))
+      } catch (error) {
+         console.error('Error fetching toy:', error)
+      }
+   }
+
+   function onLeftArrowClick() {
+      console.log('left')
+   }
+   function onRightArrowClick() {
+      console.log('right')
+   }
 
    if (!toyToDisplay) return <Loader />
    return (
       <article className="toy-details">
-         <ToyHeadline txt={toyToDisplay.toyName} />
-         <h2>{toyToDisplay.price}</h2>
-         <img src={toyToDisplay.imgUrl} />
-         <p className="labels-container">
-            {/* {toyToDisplay.labels.map((label) => (
-               <span className="label"> {label}</span>
-            ))} */}
-         </p>
-         <h4>{toyToDisplay.createdAt}</h4>
+         <ArrowLeft onClick={onLeftArrowClick} />
+         <ToyContent toyToDisplay={toyToDisplay} />
+         <ArrowRight onClick={onRightArrowClick} />
       </article>
    )
 }

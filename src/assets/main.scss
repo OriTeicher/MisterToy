@@ -1,11 +1,16 @@
+// setup
 @import './setup/vars';
 @import './setup/mixins';
 @import './setup/helpers';
 @import './setup/base';
 @import './setup/layout';
 
+// cmps
 @import './cmps/app-footer';
 @import './cmps/app-header';
 @import './cmps/logo';
 @import './cmps/main-btn';
-@import './views/toy-index';
+
+// pages
+@import './pages/toy-index';
+@import './pages/toy-details';

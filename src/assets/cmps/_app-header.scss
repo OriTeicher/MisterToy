@@ -26,3 +26,30 @@ header {
       color: lightskyblue;
    }
 }
+
+@media (max-width: $mobile-mq) {
+   header {
+      ul.navbar {
+         height: 100%;
+         @include flex-center-evenly;
+         font-weight: 700;
+         font-size: 1.2rem;
+         .nav-item {
+            height: 100%;
+            padding: 0px 15px;
+            border-radius: 20px;
+         }
+         li {
+            height: 100%;
+            transition: background-color 0.1s ease-in-out,
+               scale 0.1s ease-in-out;
+            min-width: fit-content;
+            &:hover {
+               background-color: $bgc-003;
+               scale: 1;
+            }
+            cursor: pointer;
+         }
+      }
+   }
+}
