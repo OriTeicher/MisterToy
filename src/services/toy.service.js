@@ -4,6 +4,8 @@ import { utilService } from './util.service'
 export const toyService = {
    query,
    getToyById,
+   getEmptyToy,
+   removeToy,
 }
 
 export const TOY_LABELS = [
@@ -24,7 +26,7 @@ export const TOY_LABELS = [
    'Safe',
 ]
 export const TOY_DB_KEY = 'toyDB'
-export const TOY_AMOUNT_LIMIT = 20
+export const TOY_AMOUNT_LIMIT = 3
 export const TOY_ID_LIMIT = 5
 export const TOY_MAX_LABELS_COUNT = 5
 export const MAIN_HEADER = "Welcome to Mr.Toy's toys! "
@@ -111,4 +113,18 @@ async function getToyById(toyId) {
    } catch (err) {
       console.log('could not get toy by id, error:\n' + err)
    }
+}
+
+function getEmptyToy() {
+   return {
+      createdAt: Date.now(),
+      toyName: '',
+      price: 0,
+      labels: [],
+      imgUrl: generateToyImg(),
+   }
+}
+
+async function removeToy(toyId) {
+   await asyncLocalStorageService.remove(toyId, TOY_DB_KEY)
 }

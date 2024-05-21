@@ -1,6 +1,9 @@
 // colors
-$bgc-000: linear-gradient(90deg, #0093e9 0%, #80d0c7 100%);
-$bgc-0000: linear-gradient(lightskyblue 0%, #0095f188 100%);
+// $bgc-000: linear-gradient(90deg, #0093e9 0%, #80d0c7 100%);
+// $bgc-0000: linear-gradient(lightskyblue 0%, #0095f188 100%);
+$bgc-00: linear-gradient(to right, transparent, rgba(135, 206, 250, 0.492));
+$bgc-000: linear-gradient(90deg, #0b0b0b 0%, #494949 100%);
+$bgc-0000: linear-gradient(rgb(0, 0, 0) 0%, #09090988 100%);
 $bgc-001: #fff;
 $bgc-002: #ffffff78;
 $bgc-003: #ffffff21;
@@ -26,5 +29,3 @@ $frame-radius-000: 15px;
 // media queries
 $tablet-mq: 1100px;
 $mobile-mq: 768px;
-
-

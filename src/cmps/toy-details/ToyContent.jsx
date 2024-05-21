@@ -13,8 +13,8 @@ export default function ToyContent({ toyToDisplay }) {
          </h2>
          {toyToDisplay.labels.length !== 0 && (
             <p className="labels-container">
-               {toyToDisplay.labels.map((label) => (
-                  <span key={label} className="label">
+               {toyToDisplay.labels.map((label, idx) => (
+                  <span key={idx} className="label">
                      {label}
                   </span>
                ))}

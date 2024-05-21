@@ -38,3 +38,21 @@ a {
    text-decoration: none;
    color: $font-clr-000;
 }
+
+input {
+   text-align: center;
+   font-size: 1em;
+   padding: 10px 0px;
+   border-radius: 20px;
+   color: white;
+   &::placeholder {
+      color: rgba(255, 255, 255, 0.542);
+   }
+   background-color: $bgc-003;
+   border: none;
+   &:focus {
+      background-color: $bgc-002;
+      outline: 1px solid $bgc-001;
+      outline: none;
+   }
+}

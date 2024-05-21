@@ -1,6 +1,6 @@
 import React from 'react'
-import Logo from './app-header/Logo'
-import Navbar from './app-header/Navbar'
+import Logo from './Logo'
+import Navbar from './Navbar'
 
 export default function AppHeader() {
    return (

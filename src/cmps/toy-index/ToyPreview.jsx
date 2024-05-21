@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import MainBtn from './utils/MainBtn'
-import { utilService } from '../services/util.service'
+import MainBtn from '../utils/MainBtn'
+import { utilService } from '../../services/util.service'
 import { useNavigate } from 'react-router'
 
 export default function ToyPreview({ toy, onRemoveToy }) {
@@ -8,12 +8,17 @@ export default function ToyPreview({ toy, onRemoveToy }) {
 
    const navigate = useNavigate()
 
-   function showToyDetails() {
+   function showToyDetails(ev) {
       navigate(`/toy/${toy._id}`)
    }
    function editToyDetails(ev) {
       ev.stopPropagation()
       navigate(`/toy/edit/${toy._id}`)
+   }
+
+   function handleRemoveToy(ev) {
+      ev.stopPropagation()
+      onRemoveToy(toy._id)
    }
 
    return (
@@ -31,7 +36,7 @@ export default function ToyPreview({ toy, onRemoveToy }) {
             <MainBtn
                classProp={'delete-btn'}
                btnContent={'Remove'}
-               onClickFunc={onRemoveToy}
+               onClickFunc={handleRemoveToy}
             />
             <MainBtn
                classProp={'edit-btn'}
