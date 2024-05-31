@@ -1,8 +1,14 @@
 footer {
   grid-column: 2;
   background: $bgc-000;
+  position: relative;
+
   p {
     text-shadow: 1px 1px black;
+    position: absolute;
+    font-size: 0.6em;
+    left: 0;
+    bottom: 0;
   }
   font-size: 0.7em;
   display: flex;
@@ -11,14 +17,20 @@ footer {
   justify-content: center;
   gap: 50px;
   .add-link {
-    outline: 1px solid white;
+    position: absolute;
+    left: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $bgc-002;
     transition: scale 0.1s ease-in-out;
-    border-radius: 50%;
-    font-size: 2rem;
-    padding: 0px 15px;
-    padding-block-end: 5px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    height: 50%;
+    width: 80px;
+    background-color: $bgc-003;
     &:hover {
-      scale: 1.05;
+      background-color: $bgc-002;
     }
   }
 
@@ -37,7 +49,9 @@ footer {
   .price-range::-webkit-slider-thumb {
   }
   .filter-input {
-    padding: 5px 0px;
+    height: 50%;
+    width: fit-content;
+    font-size: 1.5rem;
   }
   .range-container {
     height: 100%;
@@ -64,7 +78,6 @@ input[type="range"]::-webkit-slider-thumb {
   appearance: none;
   background: $bgc-001;
   border-radius: 10px;
-  height: 36px;
-  width: 36px;
-  opacity: 0.8;
+  height: 1.3rem;
+  width: 1.3rem;
 }

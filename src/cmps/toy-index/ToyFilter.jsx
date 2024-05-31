@@ -23,7 +23,7 @@ export default function ToyFilter() {
   }
 
   return (
-    <form>
+    <>
       <input
         type="text"
         onChange={handleFilterChange}
@@ -44,6 +44,6 @@ export default function ToyFilter() {
           max={100}
         />
       </div>
-    </form>
+    </>
   )
 }

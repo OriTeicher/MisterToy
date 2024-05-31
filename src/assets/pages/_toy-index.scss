@@ -5,25 +5,27 @@ main {
   max-height: 100vh;
 }
 
+.toy-index {
+  display: grid;
+}
 .headline {
   text-align: center;
-  text-shadow: 2px 2px #333;
-  cursor: default;
-  padding: 5px 5%;
   width: fit-content;
-  margin: auto;
-  margin-top: 2%;
+  cursor: default;
+  padding: 1% 5%;
   border-radius: 10px;
   box-shadow: $shadow-006;
+  margin: auto;
+  margin-top: 3%;
 }
 
 .toy-list {
-  padding: 3%;
+  padding: 50px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   justify-content: space-evenly;
   align-items: center;
-  gap: 50px;
+  gap: 30px;
 }
 
 .toy-preview {
@@ -79,5 +81,13 @@ main {
   .container {
     width: 500px;
     background-color: #000;
+  }
+}
+
+@media (max-width: $mobile-mq) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  .toy-list {
   }
 }

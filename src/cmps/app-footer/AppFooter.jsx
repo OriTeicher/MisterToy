@@ -4,10 +4,9 @@ import ToyFilter from "../toy-index/ToyFilter"
 
 export default function AppFooter() {
   return (
-    <>
+    <footer className="flex w-100 h-100 ">
       <AddBtn />
-      <p>All rights reserved &copy; to Ori Teicher</p>
       <ToyFilter />
-    </>
+    </footer>
   )
 }
