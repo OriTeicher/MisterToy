@@ -6,6 +6,7 @@ export const toyService = {
   getToyById,
   getEmptyToy,
   removeToy,
+  getDefaultFilter,
 }
 
 export const TOY_LABELS = [
@@ -38,11 +39,14 @@ async function query(filterBy = {}) {
     toys = _createToys(TOY_AMOUNT_LIMIT)
     localStorage.setItem(TOY_DB_KEY, JSON.stringify(toys))
   }
+  console.log("toys", toys)
   if (filterBy.minPrice)
     toys = toys.filter((toy) => toy.price >= filterBy.minPrice)
   if (filterBy.toyName)
-    toys = toys.filter((toy) => toy.name.contains(filterBy.toyName))
-
+    toys = toys.filter((toy) =>
+      toy.toyName.toLowerCase().includes(filterBy.toyName)
+    )
+  console.log("toys after filter", toys)
   return toys
 }
 
@@ -124,4 +128,11 @@ function getEmptyToy() {
 
 async function removeToy(toyId) {
   await asyncLocalStorageService.remove(toyId, TOY_DB_KEY)
+}
+
+function getDefaultFilter() {
+  return {
+    toyName: "",
+    minPrice: 10,
+  }
 }

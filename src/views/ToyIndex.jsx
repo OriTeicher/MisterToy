@@ -5,25 +5,32 @@ import Loader from "../cmps/utils/Loader"
 import ToyHeadline from "../cmps/utils/Headline"
 import { MAIN_HEADER } from "../services/toy.service"
 import { toyActions } from "../store/actions/toy.actions"
-import { useNavigate } from "react-router"
-
+import ToyFilter from "../cmps/toy-index/ToyFilter"
 export default function ToyIndex() {
   const toys = useSelector((state) => state.toyModule.toys)
-  const navigate = useNavigate()
+  const filterBy = useSelector((storeState) => storeState.toyModule.filterBy)
+
   useEffect(() => {
     toyActions.loadToys()
-  })
+  }, [filterBy])
 
   async function handleRemoveToy(toyId) {
     await toyActions.removeToy(toyId)
-    navigate("/toy")
+  }
+
+  function onSetFilter(filterBy) {
+    console.log("onsetfilter index filterBy", filterBy)
+    toyActions.setFilterBy(filterBy)
   }
 
   if (!toys || !toys.length) return <Loader />
 
   return (
     <section className="toy-index">
-      <ToyHeadline txt={MAIN_HEADER} />
+      <div className="header-container">
+        <ToyHeadline txt={MAIN_HEADER} />
+        <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} />
+      </div>
       <ToyList toys={toys} onRemoveToy={handleRemoveToy} />
     </section>
   )

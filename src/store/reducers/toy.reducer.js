@@ -3,16 +3,16 @@ import { toyService } from "../../services/toy.service"
 const initialState = {
   toys: [],
   selectedToyId: "",
-  filterBy: {},
+  filterBy: toyService.getDefaultFilter(),
   sortBy: {},
 }
 
-export default function toyReducer(action = {}, state = initialState) {
+export default function toyReducer(state = initialState, action = {}) {
   switch (action.type) {
     case "SET_TOYS":
       return {
         ...state,
-        ...action.payload,
+        toys: [...action.toys],
       }
     case "ADD_TOY":
       return {
@@ -34,10 +34,9 @@ export default function toyReducer(action = {}, state = initialState) {
         toys: updatedToys,
       }
     case "SET_FILTER_BY":
-      console.log("action", action)
       return {
         ...state,
-        filterBy: { ...state.filterBy, ...action.filterBy },
+        filterBy: { ...action.filterBy },
       }
     default:
       return state

@@ -1,25 +1,25 @@
-import { useSelector } from "react-redux"
-import { toyActions } from "../../store/actions/toy.actions"
 import { useState, useRef, useEffect } from "react"
 import { utilService } from "../../services/util.service"
-export default function ToyFilter() {
-  const MIN_PRICE = 10
-  const DEBOUNCE_DELAY = 1000
-  const [filterByToEdit, setFilterByToEdit] = useState({})
-  const filterByRef = useRef(
-    utilService.debounce(toyActions.setFilterBy, DEBOUNCE_DELAY)
-  )
+import { useSearchParams } from "react-router-dom"
+
+const MIN_PRICE = 10
+const MAX_PRICE = 100
+const PRICE_RANGE_STEP = 0.01
+const DEBOUNCE_DELAY = 1000
+
+export default function ToyFilter({ filterBy, onSetFilter }) {
+  const [filterByToEdit, setFilterByToEdit] = useState({ ...filterBy })
+
+  onSetFilter = useRef(utilService.debounce(onSetFilter))
 
   useEffect(() => {
-    filterByRef.current(filterByToEdit)
+    onSetFilter.current(filterByToEdit)
   }, [filterByToEdit])
 
-  function handleFilterChange(ev) {
-    let { name, value } = ev.target
-    if (name === "minPrice") value = +value
-    setFilterByToEdit(
-      (prevFilter) => (prevFilter = { ...prevFilter, [name]: value })
-    )
+  function handleFilterChange({ target }) {
+    const field = target.name
+    let value = field === "minPrice" ? +target.value : target.value
+    setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
   }
 
   return (
@@ -39,9 +39,9 @@ export default function ToyFilter() {
           onChange={handleFilterChange}
           name="minPrice"
           className="price-range"
-          step={0.01}
-          min={10}
-          max={100}
+          step={PRICE_RANGE_STEP}
+          min={MIN_PRICE}
+          max={MAX_PRICE}
         />
       </div>
     </>
