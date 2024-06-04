@@ -11,10 +11,6 @@ export default function ToyIndex() {
   const toys = useSelector((state) => state.toyModule.toys)
   const filterBy = useSelector((storeState) => storeState.toyModule.filterBy)
 
-  // useEffect(() => {
-  //   toyActions.resetFilters()
-  // })
-
   useEffect(() => {
     toyActions.loadToys()
   }, [filterBy])

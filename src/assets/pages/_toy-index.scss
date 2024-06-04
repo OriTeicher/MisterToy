@@ -109,7 +109,7 @@ input[type="range"] {
   position: relative;
   -webkit-appearance: none;
   background: $bgc-003;
-
+  height: 20px;
   cursor: pointer;
   border-radius: 10px 10px 0px 0px;
   justify-self: center;
@@ -120,7 +120,7 @@ input[type="range"]::-webkit-slider-thumb {
   appearance: none;
   background: $bgc-002;
   width: 20px;
-  height: 35px;
+  height: 20px;
 }
 
 .filter-input {
@@ -164,20 +164,23 @@ input[type="range"],
     border: none;
     border-radius: 10px 0 0 0;
   }
-  a {
-    border-radius: 0 10px 0 0;
-  }
+}
+.add-link {
+  border-radius: 0 10px 0 0;
 }
 
 @media (max-width: $mobile-mq) {
+  .header-container {
+    padding: 0;
+    width: 100%;
+  }
   input[type="range"],
   .filter-input,
   .add-link,
   .filter-btns-container button {
-    border-radius: 0;
-    width: 100%;
+    border-radius: 0px;
     font-size: 1rem;
-    word-break: break-all;
+    width: 100%;
   }
   ::-webkit-scrollbar {
     display: none;

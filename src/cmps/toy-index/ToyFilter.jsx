@@ -2,11 +2,8 @@ import { useState, useRef, useEffect } from "react"
 import { utilService } from "../../services/util.service"
 import { useSearchParams } from "react-router-dom"
 import AddBtn from "../utils/AddBtn"
-
-const MIN_PRICE = 10
-const MAX_PRICE = 100
-const PRICE_RANGE_STEP = 0.01
-const DEBOUNCE_DELAY = 1000
+import PriceRange from "../utils/PriceRange"
+import { toyService } from "../../services/toy.service"
 
 export default function ToyFilter({ filterBy, onSetFilter }) {
   const [filterByToEdit, setFilterByToEdit] = useState({ ...filterBy })
@@ -23,6 +20,10 @@ export default function ToyFilter({ filterBy, onSetFilter }) {
     setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
   }
 
+  function handleResetFilter() {
+    setFilterByToEdit(toyService.getDefaultFilter())
+  }
+
   return (
     <>
       <input
@@ -32,21 +33,14 @@ export default function ToyFilter({ filterBy, onSetFilter }) {
         name="toyName"
         className="filter-input"
       />
-
-      <div className="range-container flex-col align-center space-evenly h-100">
-        <label htmlFor="range">{filterByToEdit.minPrice || MIN_PRICE}$</label>
-        <input
-          type="range"
-          onChange={handleFilterChange}
-          name="minPrice"
-          className="price-range"
-          step={PRICE_RANGE_STEP}
-          min={MIN_PRICE}
-          max={MAX_PRICE}
-        />
-      </div>
+      <PriceRange
+        onFilterChange={handleFilterChange}
+        filterByToEdit={filterByToEdit}
+      />
       <div className="flex h-100 filter-btns-container">
-        <button className="reset-filter-btn">Reset Filters</button>
+        <button className="reset-filter-btn" onClick={handleResetFilter}>
+          Reset Filters
+        </button>
         <AddBtn />
       </div>
     </>
