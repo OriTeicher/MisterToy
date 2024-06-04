@@ -23,9 +23,6 @@ function App() {
           <Route path="/login" element={<LoginSignup />}></Route>
         </Routes>
       </main>
-      <footer>
-        <AppFooter />
-      </footer>
     </section>
   )
 }

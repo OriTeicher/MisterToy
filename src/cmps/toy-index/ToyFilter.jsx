@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react"
 import { utilService } from "../../services/util.service"
 import { useSearchParams } from "react-router-dom"
+import AddBtn from "../utils/AddBtn"
 
 const MIN_PRICE = 10
 const MAX_PRICE = 100
@@ -43,6 +44,10 @@ export default function ToyFilter({ filterBy, onSetFilter }) {
           min={MIN_PRICE}
           max={MAX_PRICE}
         />
+      </div>
+      <div className="flex h-100 filter-btns-container">
+        <button className="reset-filter-btn">Reset Filters</button>
+        <AddBtn />
       </div>
     </>
   )

@@ -8,6 +8,7 @@ export const toyActions = {
   saveToy,
   removeToy,
   setFilterBy,
+  resetFilters,
 }
 
 function setToys(toys) {
@@ -18,7 +19,6 @@ function setToys(toys) {
 }
 
 function setFilterBy(filterBy = toyService.getDefaultFilter()) {
-  console.log("setFilterBy actions", filterBy)
   store.dispatch({ type: "SET_FILTER_BY", filterBy })
 }
 
@@ -34,7 +34,6 @@ async function saveToy(toy) {
 async function loadToys() {
   try {
     const filterBy = store.getState().toyModule.filterBy
-    console.log("filterBy actions loadToys()", filterBy)
     const toys = await toyService.query(filterBy)
     store.dispatch({ type: "SET_TOYS", toys })
     return toys
@@ -50,4 +49,11 @@ async function removeToy(toyId) {
   } catch (err) {
     throw new Error("Error catched in toy actions\n" + err)
   }
+}
+
+function resetFilters() {
+  store.dispatch({
+    type: "SET_FILTER_BY",
+    action: toyService.getDefaultFilter(),
+  })
 }

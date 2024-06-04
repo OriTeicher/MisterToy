@@ -18,8 +18,8 @@ export default function Loader() {
           NO_TOYS_MSG
         ) : (
           <l-newtons-cradle
-            size="300"
-            speed="1.3"
+            size="200"
+            speed="1.5"
             color="white"
           ></l-newtons-cradle>
         )}

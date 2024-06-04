@@ -1,35 +1,35 @@
 .toy-edit {
-   height: 80%;
-   gap: 10px;
-   font-family: 'Assistant';
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-   img {
-      border-radius: 50%;
-   }
-   input,
-   button {
-      padding: 0.5em;
-      font-size: 1em;
-      border: none;
-      border-radius: 20px;
-      color: white;
-      &::placeholder {
-         color: rgba(255, 255, 255, 0.849);
-      }
-      text-align: center;
-      background-color: $bgc-003;
-      outline: none;
-      &::-webkit-inner-spin-button {
-         display: none;
-      }
-   }
-   button {
-      &:hover {
-         cursor: pointer;
-         background-color: $bgc-002;
-      }
-   }
+  height: 80%;
+  gap: 10px;
+  font-family: $main-font;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  img {
+    border-radius: 50%;
+  }
+  input,
+  button {
+    padding: 0.5em;
+    font-size: 1em;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.849);
+    }
+    text-align: center;
+    background-color: $bgc-003;
+    outline: none;
+    &::-webkit-inner-spin-button {
+      display: none;
+    }
+  }
+  button {
+    &:hover {
+      cursor: pointer;
+      background-color: $bgc-002;
+    }
+  }
 }

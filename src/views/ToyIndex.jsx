@@ -6,9 +6,14 @@ import ToyHeadline from "../cmps/utils/Headline"
 import { MAIN_HEADER } from "../services/toy.service"
 import { toyActions } from "../store/actions/toy.actions"
 import ToyFilter from "../cmps/toy-index/ToyFilter"
+import AddBtn from "../cmps/utils/AddBtn"
 export default function ToyIndex() {
   const toys = useSelector((state) => state.toyModule.toys)
   const filterBy = useSelector((storeState) => storeState.toyModule.filterBy)
+
+  // useEffect(() => {
+  //   toyActions.resetFilters()
+  // })
 
   useEffect(() => {
     toyActions.loadToys()
@@ -19,7 +24,6 @@ export default function ToyIndex() {
   }
 
   function onSetFilter(filterBy) {
-    console.log("onsetfilter index filterBy", filterBy)
     toyActions.setFilterBy(filterBy)
   }
 

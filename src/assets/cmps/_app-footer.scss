@@ -1,5 +1,4 @@
 footer {
-  grid-column: 2;
   background: $bgc-000;
   position: relative;
 
@@ -16,21 +15,4 @@ footer {
   align-items: center;
   justify-content: center;
   gap: 50px;
-  .add-link {
-    position: absolute;
-    left: 1%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $bgc-002;
-    transition: scale 0.1s ease-in-out;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    height: 50%;
-    width: 80px;
-    background-color: $bgc-003;
-    &:hover {
-      background-color: $bgc-002;
-    }
-  }
 }
