@@ -13,13 +13,11 @@
   background: $bgc-0000;
   padding: 10px 0px;
   &.delete-btn:hover {
-    color: $error-clr;
   }
   &:hover {
     cursor: pointer;
     background-color: $bgc-002;
   }
   &.edit-btn:hover {
-    color: $success-clr;
   }
 }

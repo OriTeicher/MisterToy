@@ -3,6 +3,7 @@ export const utilService = {
   makeId,
   formatTimestampToDate,
   debounce,
+  getFilterBySearchParams,
   EMPTY: "",
 }
 
@@ -38,4 +39,12 @@ function debounce(func, timeout = 300) {
       func.apply(this, args)
     }, timeout)
   }
+}
+
+function getFilterBySearchParams(searchParams) {
+  const newFilterBy = {}
+  searchParams.forEach((value, key) => {
+    newFilterBy[key] = value
+  })
+  return newFilterBy
 }

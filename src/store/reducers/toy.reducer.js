@@ -20,6 +20,7 @@ export default function toyReducer(state = initialState, action = {}) {
         toys: [...state.toys, action.payload],
       }
     case "REMOVE_TOY":
+      console.log("toy.id", action.payload.id)
       return {
         ...state,
         toys: state.toys.filter((toy) => toy.id !== action.payload.id),

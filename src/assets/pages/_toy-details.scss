@@ -74,5 +74,36 @@
     svg {
       font-size: 1em;
     }
+    .toy-content {
+      grid-column: 1/-1;
+
+      .labels-container {
+        flex-wrap: wrap;
+        gap: 10px;
+        span {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  .arrow-back {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  .arrow-right,
+  .arrow-left,
+  h4 {
+    position: absolute;
+    bottom: 10px;
+  }
+  h4 {
+    bottom: 7px;
+  }
+  .arrow-left {
+    left: 10px;
+  }
+  .arrow-right {
+    right: 10px;
   }
 }

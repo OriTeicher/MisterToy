@@ -33,7 +33,7 @@ async function saveToy(toy) {
 
 async function loadToys() {
   try {
-    const filterBy = store.getState().toyModule.filterBy
+    let filterBy = store.getState().toyModule.filterBy
     const toys = await toyService.query(filterBy)
     store.dispatch({ type: "SET_TOYS", toys })
     return toys

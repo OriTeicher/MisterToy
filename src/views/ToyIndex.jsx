@@ -3,17 +3,28 @@ import { useDispatch, useSelector } from "react-redux"
 import ToyList from "../cmps/toy-index/ToyList"
 import Loader from "../cmps/utils/Loader"
 import ToyHeadline from "../cmps/utils/Headline"
-import { MAIN_HEADER } from "../services/toy.service"
+import { MAIN_HEADER, toyService } from "../services/toy.service"
 import { toyActions } from "../store/actions/toy.actions"
 import ToyFilter from "../cmps/toy-index/ToyFilter"
 import AddBtn from "../cmps/utils/AddBtn"
+import { useSearchParams } from "react-router-dom"
+import { utilService } from "../services/util.service"
+
 export default function ToyIndex() {
   const toys = useSelector((state) => state.toyModule.toys)
   const filterBy = useSelector((storeState) => storeState.toyModule.filterBy)
+  const [searchParams] = useSearchParams()
+
+  useEffect(() => {
+    const newFilterBy = searchParams.size
+      ? utilService.getFilterBySearchParams(searchParams)
+      : toyService.getDefaultFilter()
+    toyActions.setFilterBy(newFilterBy)
+  }, [searchParams])
 
   useEffect(() => {
     toyActions.loadToys()
-  }, [filterBy])
+  }, [filterBy, toys])
 
   async function handleRemoveToy(toyId) {
     await toyActions.removeToy(toyId)

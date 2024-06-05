@@ -7,6 +7,7 @@ import { toyService } from "../../services/toy.service"
 
 export default function ToyFilter({ filterBy, onSetFilter }) {
   const [filterByToEdit, setFilterByToEdit] = useState({ ...filterBy })
+  const [searchParams, setSearchParams] = useSearchParams()
 
   onSetFilter = useRef(utilService.debounce(onSetFilter))
 
@@ -14,14 +15,27 @@ export default function ToyFilter({ filterBy, onSetFilter }) {
     onSetFilter.current(filterByToEdit)
   }, [filterByToEdit])
 
+  function setQueryParams(field, value) {
+    const newSearchParams = new URLSearchParams(searchParams.toString())
+    newSearchParams.set(field, value)
+    setSearchParams(newSearchParams)
+  }
+
   function handleFilterChange({ target }) {
     const field = target.name
     let value = field === "minPrice" ? +target.value : target.value
+    setQueryParams(field, value)
     setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
   }
 
   function handleResetFilter() {
-    setFilterByToEdit(toyService.getDefaultFilter())
+    const defaultFilter = toyService.getDefaultFilter()
+    setFilterByToEdit(defaultFilter)
+    const newSearchParams = new URLSearchParams()
+    for (const key in defaultFilter) {
+      newSearchParams.set(key, defaultFilter[key])
+    }
+    setSearchParams(newSearchParams)
   }
 
   return (

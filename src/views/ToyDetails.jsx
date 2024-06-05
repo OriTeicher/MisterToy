@@ -37,7 +37,7 @@ export default function ToyDetails() {
       <ArrowBack className="arrow-back" onClick={onBackArrowClick} />
       <ArrowLeft className="arrow-left" onClick={onLeftArrowClick} />
       <ToyContent toyToDisplay={toyToDisplay} />
-      <ArrowRight onClick={onRightArrowClick} />
+      <ArrowRight className="arrow-right" onClick={onRightArrowClick} />
     </article>
   )
 }

@@ -16,6 +16,7 @@ export default function PriceRange({ onFilterChange, filterByToEdit }) {
         step={PRICE_RANGE_STEP}
         min={MIN_PRICE}
         max={MAX_PRICE}
+        value={filterByToEdit.price}
       />
     </div>
   )

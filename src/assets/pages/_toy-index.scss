@@ -11,14 +11,16 @@ main {
 }
 .headline {
   grid-column: 1/-1;
-  padding: 0 0 1% 0;
+  padding: 10px 20px;
+  box-shadow: $shadow-006;
+  border-radius: 10px;
+  text-shadow: 1px 1px black;
   text-align: center;
   @include flex-center;
   width: fit-content;
   cursor: default;
-  height: 100%;
-  width: 100%;
   margin: auto;
+  margin-bottom: 20px;
 }
 
 .toy-list {
@@ -46,6 +48,7 @@ main {
     opacity: 0;
     transition: opacity 0.3s ease-in, 0.3s ease-in transform;
     transform: translateY(100%);
+    background: $bgc-00;
   }
   .toy-btns.show {
     opacity: 1;
@@ -92,7 +95,7 @@ main {
   padding-top: 20px;
   display: grid;
   grid-template-columns: 1fr 0.5fr 1fr;
-  background: $bgc-003;
+  background: $bgc-004;
 }
 
 .range-container {
@@ -118,9 +121,9 @@ input[type="range"] {
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
-  background: $bgc-002;
-  width: 20px;
-  height: 20px;
+  background: $bgc-000;
+  width: 0.1px;
+  height: 0.1px;
 }
 
 .filter-input {
@@ -169,10 +172,41 @@ input[type="range"],
   border-radius: 0 10px 0 0;
 }
 
+input[type="range"],
+.filter-input,
+.add-link,
+.filter-btns-container button {
+  padding: 10px 0px;
+}
+
+input[type="range"] {
+  margin: auto;
+  -webkit-appearance: none;
+  position: relative;
+  overflow: hidden;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 10px 10px 0px 0px; /* iOS */
+  height: 100%;
+}
+
+::-webkit-slider-runnable-track {
+  background-color: $bgc-000;
+}
+
+::-webkit-slider-thumb {
+  box-shadow: -300px 0 0 300px white; /* 2 */
+  opacity: 0.5;
+}
+
 @media (max-width: $mobile-mq) {
+  .headline {
+    display: none;
+  }
   .header-container {
     padding: 0;
     width: 100%;
+    grid-template-columns: 1fr 1.5fr 1fr;
   }
   input[type="range"],
   .filter-input,
@@ -181,6 +215,7 @@ input[type="range"],
     border-radius: 0px;
     font-size: 1rem;
     width: 100%;
+    grid-row: 1;
   }
   ::-webkit-scrollbar {
     display: none;
@@ -188,5 +223,11 @@ input[type="range"],
   .toy-list {
     gap: 20px;
     padding: 15px;
+    .toy-preview {
+      border-radius: 7px;
+      &:hover {
+        scale: unset;
+      }
+    }
   }
 }
