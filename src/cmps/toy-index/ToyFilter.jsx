@@ -1,9 +1,12 @@
 import { useState, useRef, useEffect } from "react"
 import { utilService } from "../../services/util.service"
 import { useSearchParams } from "react-router-dom"
-import AddBtn from "../utils/AddBtn"
-import PriceRange from "../utils/PriceRange"
 import { toyService } from "../../services/toy.service"
+import PriceRange from "../utils/PriceRange"
+import SortSelect from "../utils/SortSelect"
+import ToySearchbar from "../toy-filter/ToySearchbar"
+import ToyAddReset from "../toy-filter/ToyAddReset"
+import InStockCheckbox from "../toy-filter/InStockCheckbox"
 
 export default function ToyFilter({ filterBy, onSetFilter }) {
   const [filterByToEdit, setFilterByToEdit] = useState({ ...filterBy })
@@ -39,24 +42,21 @@ export default function ToyFilter({ filterBy, onSetFilter }) {
   }
 
   return (
-    <>
-      <input
-        type="text"
-        onChange={handleFilterChange}
-        placeholder="Search by name..."
-        name="toyName"
-        className="filter-input"
-      />
+    <section className="filter-container">
       <PriceRange
         onFilterChange={handleFilterChange}
         filterByToEdit={filterByToEdit}
       />
-      <div className="flex h-100 filter-btns-container">
-        <button className="reset-filter-btn" onClick={handleResetFilter}>
-          Reset Filters
-        </button>
-        <AddBtn />
-      </div>
-    </>
+      <ToyAddReset handleResetFilter={handleResetFilter} />
+      <ToySearchbar
+        filterByToEdit={filterByToEdit}
+        handleFilterChange={handleFilterChange}
+      />
+      <SortSelect
+        filterByToEdit={filterByToEdit}
+        handleSortBy={handleFilterChange}
+      />
+      <InStockCheckbox isInStock={filterByToEdit.inStock} />
+    </section>
   )
 }

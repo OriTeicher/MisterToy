@@ -58,6 +58,7 @@ function _createToy() {
       utilService.getRandomInt(0, TOY_MAX_LABELS_COUNT)
     ),
     imgUrl: generateToyImg(),
+    inStock: utilService.getRandomInt(0, 1) ? true : false,
   }
 }
 
@@ -121,6 +122,7 @@ function getEmptyToy() {
     price: 0,
     labels: [],
     imgUrl: generateToyImg(),
+    inStock: false,
   }
 }
 
@@ -132,5 +134,7 @@ function getDefaultFilter() {
   return {
     toyName: "",
     minPrice: 10,
+    inStock: true,
+    sortBy: {},
   }
 }

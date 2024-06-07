@@ -1,12 +1,11 @@
 import React, { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import ToyList from "../cmps/toy-index/ToyList"
 import Loader from "../cmps/utils/Loader"
 import ToyHeadline from "../cmps/utils/Headline"
 import { MAIN_HEADER, toyService } from "../services/toy.service"
 import { toyActions } from "../store/actions/toy.actions"
 import ToyFilter from "../cmps/toy-index/ToyFilter"
-import AddBtn from "../cmps/utils/AddBtn"
 import { useSearchParams } from "react-router-dom"
 import { utilService } from "../services/util.service"
 

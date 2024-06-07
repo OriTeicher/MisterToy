@@ -2,11 +2,13 @@ header {
   grid-column: 2;
   background-color: $bgc-00;
   box-shadow: $shadow-000;
+  height: 100%;
   ul.navbar {
     height: 100%;
     @include flex-center-evenly;
     font-weight: 500;
     li {
+      height: 100%;
       transition: background-color 0.1s ease-in-out;
       padding: 20px;
       min-width: fit-content;
@@ -14,6 +16,9 @@ header {
         background-color: $bgc-003;
       }
       cursor: pointer;
+    }
+    li.selected {
+      background-color: $bgc-002;
     }
   }
   svg {
@@ -33,6 +38,7 @@ header {
       }
       li {
         height: 100%;
+        padding: 20px 10px;
         transition: background-color 0.1s ease-in-out;
         min-width: fit-content;
         &:hover {

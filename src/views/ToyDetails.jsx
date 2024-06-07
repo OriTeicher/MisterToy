@@ -8,10 +8,12 @@ import { FaRegArrowAltCircleLeft as ArrowLeft } from "react-icons/fa"
 import { IoMdArrowRoundBack as ArrowBack } from "react-icons/io"
 
 import ToyContent from "../cmps/toy-details/ToyContent"
+import InStock from "../cmps/utils/InStock"
 export default function ToyDetails() {
   const [toyToDisplay, setToyToDisplay] = useState(null)
   const { toyId } = useParams()
   const navigate = useNavigate()
+
   useEffect(() => {
     loadToy()
   }, [toyId])
@@ -34,6 +36,7 @@ export default function ToyDetails() {
   if (!toyToDisplay) return <Loader />
   return (
     <article className="toy-details">
+      <InStock inStock={toyToDisplay.inStock} />
       <ArrowBack className="arrow-back" onClick={onBackArrowClick} />
       <ArrowLeft className="arrow-left" onClick={onLeftArrowClick} />
       <ToyContent toyToDisplay={toyToDisplay} />

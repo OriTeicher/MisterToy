@@ -1,17 +1,19 @@
 // setup
-@import './setup/vars';
-@import './setup/mixins';
-@import './setup/helpers';
-@import './setup/base';
-@import './setup/layout';
+@import "./setup/vars";
+@import "./setup/mixins";
+@import "./setup/helpers";
+@import "./setup/base";
+@import "./setup/layout";
 
 // cmps
-@import './cmps/app-footer';
-@import './cmps/app-header';
-@import './cmps/logo';
-@import './cmps/main-btn';
+@import "./cmps/app-footer";
+@import "./cmps/app-header";
+@import "./cmps/toy-filter";
+@import "./cmps/logo";
+@import "./cmps/main-btn";
+@import "./utils/checkbox";
 
 // pages
-@import './pages/toy-index';
-@import './pages/toy-details';
-@import './pages/toy-edit';
+@import "./pages/toy-index";
+@import "./pages/toy-details";
+@import "./pages/toy-edit";
